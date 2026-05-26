@@ -1,0 +1,12 @@
+name: mitoreview
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12
+  - biopython=1.87
+  - entrez-direct=25.3
+  - matplotlib=3.9
+  - numpy=2.0
+  - pandoc
+  - weasyprint

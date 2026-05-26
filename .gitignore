@@ -3,3 +3,20 @@
 CLAUDE.md
 CLAUDE.local.md
 .claudeignore
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Log files
+*.log
+
+# Output data files — uncomment to exclude generated results from git
+# *.gb
+# *.raw.gb
+# *.tsv
+# *.png
+# *.pdf
+# *.summary.txt
+# *.report.md
