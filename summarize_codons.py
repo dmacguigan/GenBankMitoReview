@@ -954,7 +954,11 @@ Examples:
     print(f"Per-CDS table:  {tsv_path}")
     print(f"Summary:        {summary_path}")
 
-    cmd_str = " ".join(sys.argv)
+    argv = sys.argv[:]
+    for i, tok in enumerate(argv):
+        if tok == "--api-key" and i + 1 < len(argv):
+            argv[i + 1] = "***"
+    cmd_str = " ".join(argv)
     md_path, pdf_path = write_markdown_report(rows, out_prefix, args.genbank, cmd_str)
     if md_path:
         print(f"Markdown report: {md_path}")
