@@ -446,9 +446,6 @@ def _build_summary_text(rows):
             for codon, c in sorted(starts.items(), key=lambda x: (-x[1], x[0])):
                 w(f"      {codon:<5s} {c:4d} ({100*c/nc:5.1f}%)")
             w(f"    Non-canonical start: {len(nc_start)}/{nc} ({100*len(nc_start)/nc:.1f}%)")
-            for r in nc_start:
-                w(f"      [FLAG] {r['record_id']} ({r['species']}): "
-                  f"start {r['start_codon']} (table {r['transl_table']})")
 
             w("    Stop codons:")
             for codon, c in sorted(stops.items(), key=lambda x: (-x[1], x[0])):
@@ -458,9 +455,6 @@ def _build_summary_text(rows):
             if n_polya:
                 w(f"    polyA-completed stop (T/TA→TAA): {n_polya}/{nc} ({100*n_polya/nc:.1f}%)")
             w(f"    Non-canonical stop: {len(nc_stop)}/{nc} ({100*len(nc_stop)/nc:.1f}%)")
-            for r in nc_stop:
-                w(f"      [FLAG] {r['record_id']} ({r['species']}): "
-                  f"stop {r['stop_codon']} (table {r['transl_table']})")
 
         if partial:
             w(f"  Partial CDS ({len(partial)}):")
@@ -653,6 +647,115 @@ def _length_ridgeline_fig(rows):
     return fig
 
 
+def _build_summary_md(rows):
+    """Per-gene codon summary formatted as Markdown for embedding in the report."""
+    lines = []
+    w = lines.append
+
+    table_records = defaultdict(set)
+    for r in rows:
+        table_records[r["transl_table"]].add(r["record_id"])
+
+    w("## Genetic Code Summary")
+    w("")
+    for tt in sorted(table_records,
+                     key=lambda x: (x == "", int(x) if x != "" else 0)):
+        recs = table_records[tt]
+        if tt == "":
+            w(f"**Table: unknown/missing** — {len(recs)} record(s)")
+            w("")
+            continue
+        try:
+            tbl    = CodonTable.unambiguous_dna_by_id[int(tt)]
+            starts = " · ".join(f"`{c}`" for c in sorted(tbl.start_codons))
+            stops  = " · ".join(f"`{c}`" for c in sorted(tbl.stop_codons))
+            w(f"**Table {tt}: {tbl.names[0]}** — {len(recs)} record(s)")
+            w(f"- Canonical start codons: {starts}")
+            w(f"- Canonical stop codons: {stops}")
+        except (KeyError, ValueError):
+            w(f"**Table {tt}: unrecognized** — {len(recs)} record(s)")
+        w("")
+
+    w("---")
+    w("")
+    by_gene = defaultdict(list)
+    for r in rows:
+        by_gene[r["gene"]].append(r)
+
+    w("## Codon Usage by Gene")
+    w("")
+    w(f"*{len(rows)} CDS analyzed across {len(by_gene)} gene group(s). "
+      "Canonical status uses each record's `/transl_table` genetic code.*")
+    w("")
+
+    for gene in sorted(by_gene):
+        cds      = by_gene[gene]
+        complete = [r for r in cds
+                    if r["start_flag"] != "partial" and r["stop_flag"] != "partial"]
+        partial  = [r for r in cds
+                    if r["start_flag"] == "partial" or r["stop_flag"] == "partial"]
+        n = len(cds)
+
+        lengths = [r["cds_length"] for r in cds]
+        mean_l  = sum(lengths) / n
+        std_l   = (sum((x - mean_l) ** 2 for x in lengths) / n) ** 0.5
+
+        w(f"### `{gene}`")
+        w("")
+        w(f"**{n} CDS** · {len(complete)} complete · {len(partial)} partial")
+        w("")
+        w(f"**Length (bp):** min={min(lengths)} · max={max(lengths)} · "
+          f"mean={mean_l:.1f} · SD={std_l:.1f}")
+        w("")
+
+        if complete:
+            nc       = len(complete)
+            starts   = Counter(r["start_codon"] for r in complete)
+            stops    = Counter(r["stop_codon"]   for r in complete)
+            nc_start = [r for r in complete if r["start_flag"] == "NON-CANONICAL"]
+            nc_stop  = [r for r in complete if r["stop_flag"]  == "NON-CANONICAL"]
+
+            w("**Start codons**")
+            w("")
+            w("| Codon | n | % |")
+            w("|:------|--:|--:|")
+            for codon, c in sorted(starts.items(), key=lambda x: (-x[1], x[0])):
+                w(f"| `{codon}` | {c} | {100*c/nc:.1f}% |")
+            w("")
+            if nc_start:
+                w(f"**Non-canonical start: {len(nc_start)}/{nc} ({100*len(nc_start)/nc:.1f}%)**")
+            else:
+                w(f"Non-canonical start: {len(nc_start)}/{nc} ({100*len(nc_start)/nc:.1f}%)")
+            w("")
+
+            w("**Stop codons**")
+            w("")
+            w("| Codon | n | % |")
+            w("|:------|--:|--:|")
+            n_polya = sum(1 for r in complete if r["stop_flag"] == "polyA")
+            for codon, c in sorted(stops.items(), key=lambda x: (-x[1], x[0])):
+                label = f"`{codon}` *(polyA)*" if codon in ("T", "TA") else f"`{codon}`"
+                w(f"| {label} | {c} | {100*c/nc:.1f}% |")
+            w("")
+            if n_polya:
+                w(f"*polyA-completed (T/TA → TAA): {n_polya}/{nc} ({100*n_polya/nc:.1f}%)*")
+                w("")
+            if nc_stop:
+                w(f"**Non-canonical stop: {len(nc_stop)}/{nc} ({100*len(nc_stop)/nc:.1f}%)**")
+            else:
+                w(f"Non-canonical stop: {len(nc_stop)}/{nc} ({100*len(nc_stop)/nc:.1f}%)")
+            w("")
+
+        if partial:
+            w(f"*{len(partial)} partial CDS (truncated/fuzzy ends — not assessed)*")
+            w("")
+
+        w("---")
+        w("")
+
+    return "\n".join(lines)
+
+
 # ── Markdown + PDF report ────────────────────────────────────────────────────
 
 def _md_table(rows):
@@ -707,7 +810,6 @@ def write_markdown_report(rows, out_prefix, genbank_path, cmd_str=None):
     n_records = len(set(r["record_id"] for r in rows))
     date_str  = datetime.date.today().isoformat()
     tsv_path  = f"{out_prefix}.codons.tsv"
-    summary   = _build_summary_text(rows)
 
     header = [
         "# Mitogenome Codon Review",
@@ -728,39 +830,16 @@ def write_markdown_report(rows, out_prefix, genbank_path, cmd_str=None):
         "",
     ]
 
-    md = header + ["## Summary", "", "```", summary.rstrip(), "```", "", "---", ""]
-
-    # Per-gene length stats table
-    by_gene_rows = defaultdict(list)
-    for r in rows:
-        by_gene_rows[r["gene"]].append(r["cds_length"])
-    len_header = "| Gene | n | Min (bp) | Max (bp) | Mean (bp) | SD (bp) |"
-    len_sep    = "|------|---|----------|----------|-----------|---------|"
-    len_lines  = [len_header, len_sep]
-    for gene in sorted(by_gene_rows):
-        ls   = by_gene_rows[gene]
-        n_g  = len(ls)
-        mn   = min(ls)
-        mx   = max(ls)
-        avg  = sum(ls) / n_g
-        sd   = (sum((x - avg) ** 2 for x in ls) / n_g) ** 0.5
-        len_lines.append(f"| {gene} | {n_g} | {mn} | {mx} | {avg:.1f} | {sd:.1f} |")
-
-    md += [
-        "## 4. CDS Length by Gene",
-        "",
-        "\n".join(len_lines),
-        "",
-    ]
+    md = header + [_build_summary_md(rows)]
 
     section_map = [
-        ("fig_geneLen_ridgeline", "### Length distribution",
+        ("fig_geneLen_ridgeline", "## 1. CDS Length Distribution",
          "CDS length distribution"),
-        ("fig_start_heatmap", "## 5. Start Codon Frequency Heatmap",
+        ("fig_start_heatmap", "## 2. Start Codon Frequency Heatmap",
          "Start codon heatmap"),
-        ("fig_stop_heatmap",  "## 6. Stop Codon Frequency Heatmap",
+        ("fig_stop_heatmap",  "## 3. Stop Codon Frequency Heatmap",
          "Stop codon heatmap"),
-        ("fig_stacked_bars",  "## 7. Start and Stop Codon Distributions",
+        ("fig_stacked_bars",  "## 4. Start and Stop Codon Distributions",
          "Codon distributions"),
     ]
     for tag, heading, alt in section_map:
