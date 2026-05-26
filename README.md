@@ -9,29 +9,39 @@ appropriate genetic code.
 1. **Download** all mitochondrial genomic records matching a GenBank query into
    a `.gb` file, dropping records with one or fewer genes so only multi-gene
    mitogenomes remain.
-2. **Summarize** start and stop codons per gene across those mitogenomes. Each
+2. **Summarize** start and stop codon usage per gene. Each
    record's `/transl_table` qualifier selects the
    [NCBI genetic code](https://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html/index.cgi?chapter=cgencodes)
    used to judge whether a codon is canonical. Non-canonical start/stop codons
    are flagged.
+3. **Calculate** and summarize protein-coding gene lengths.
 
 Codons are read from the CDS features themselves, respecting strand, spliced
-(`join`) locations, reading frame (`/codon_start`), and the genetic code, so the
-calls are accurate rather than a literal first/last 3 bp of a sequence.
+(`join`) locations, reading frame (`/codon_start`), and the genetic code.
+
+## Getting started
+
+```bash
+git clone https://github.com/dmacguigan/GenBankMitoReview.git
+cd GenBankMitoReview
+```
 
 ## Setup
 
+Create the `mitoreview` environment with mamba or conda (mamba is faster):
+
 ```bash
-mamba env create -f environment.yml
+mamba env create -f environment.yml   # preferred
+# or
+conda env create -f environment.yml
 ```
 
 This installs Entrez Direct (`esearch`/`efilter`/`efetch`), Biopython, matplotlib,
 and the report-generation tools at pinned versions. No manual activation needed —
-`mitoreview.sh` handles it automatically.
+`mitoreview.sh` detects mamba or conda automatically and re-invokes itself inside
+the environment.
 
 ## Usage
-
-End to end:
 
 ```bash
 bash mitoreview.sh [--complete] [--refseq] '<query>' <output_prefix>
@@ -66,12 +76,17 @@ python summarize_codons.py percidae.gb -o percidae             # -> per-CDS tabl
   table, codon-start, start/stop codon, canonical status, flag, and notes.
 - `<prefix>.summary.txt` — per-gene codon summary (same text as stdout).
 - `<prefix>.report.md` + `<prefix>.report.pdf` — Markdown/PDF report with
-  heatmaps, stacked bar charts, and the full CDS data table.
-- A per-gene text summary printed to screen: codon distributions and the count
-  and identity of non-canonical calls.
+  figures and per-gene length statistics.
+- `<prefix>.fig_start_heatmap.png` — start codon frequency heatmap (genes × codons).
+- `<prefix>.fig_stop_heatmap.png` — stop codon frequency heatmap (genes × codons).
+- `<prefix>.fig_stacked_bars.png` — stacked bar chart of start and stop codon distributions.
+- `<prefix>.fig_geneLen_ridgeline.png` — ridgeline plot of CDS length distributions by gene.
+- A per-gene text summary printed to screen: codon distributions, length stats,
+  and the count and identity of non-canonical calls.
 
-A `partial` flag (rather than non-canonical) marks truncated/fuzzy CDS ends,
-such as mitochondrial stop codons completed by polyadenylation.
+A `polyA` flag marks T or TA stop codons completed to canonical TAA by
+polyadenylation; these are counted as complete and canonical in all summaries and
+figures. A `partial` flag marks genuinely truncated or fuzzy CDS ends.
 
 Gene names are normalized to canonical metazoan PCG labels from the `/gene` and
 `/product` qualifiers, so synonyms group together. The normalizer is ported from
@@ -80,20 +95,17 @@ the MitoPilot package's
 
 Recognized genes (bilaterian standard 13 + non-bilaterian extras):
 
-| Symbol | Gene | Taxon notes |
-|--------|------|-------------|
-| `nad1`-`nad6`, `nad4l` | NADH dehydrogenase subunits | universal metazoan mito |
-| `cox1`-`cox3` | cytochrome c oxidase subunits | universal metazoan mito |
-| `atp6`, `atp8` | ATP synthase subunits 6/8 | universal metazoan mito |
-| `cob` | cytochrome b | universal metazoan mito |
-| `mtMutS` | MutS mismatch-repair | octocorals; MutS/msh1/mtmsh synonyms |
-| `nad7` | NADH dehydrogenase subunit 7 | some cnidarians (e.g., Hydra) |
-| `atp9` | ATP synthase subunit 9 | Trichoplax, some sponges/cnidarians |
-| `sdh2`, `sdh3`, `sdh4` | succinate dehydrogenase subunits B/C/D | some cnidarians, sponges |
-| `rps3` | ribosomal protein S3 | cnidarians, sponges, some flatworms |
-| `rpl16` | ribosomal protein L16 | some cnidarians, sponges |
-| `tatC` | twin-arginine translocase subunit C | sponges (Amphimedon, Oscarella) |
-| `polB` | DNA polymerase B | some demosponge mitogenomes |
+| Symbol | Gene | Taxon notes | Reference |
+|--------|------|-------------|-----------|
+| `nad1`-`nad6`, `nad4l` | NADH dehydrogenase subunits | universal metazoan mito | — |
+| `cox1`-`cox3` | cytochrome c oxidase subunits | universal metazoan mito | — |
+| `atp6`, `atp8` | ATP synthase subunits 6/8 | universal metazoan mito | — |
+| `cob` | cytochrome b | universal metazoan mito | — |
+| `mtMutS` | MutS mismatch-repair | octocorals; MutS/msh1/mtmsh synonyms | [Pont-Kingdon et al. 1995](https://doi.org/10.1038/375109b0) |
+| `atp9` | ATP synthase subunit 9 | some sponges, cnidarians | [Cardona et al. 2014](https://doi.org/10.1016/j.ympev.2013.07.016) |
+| `tatC` | twin-arginine translocase subunit C | some sponges (Oscarellidae) | [Gazave et al. 2010](https://doi.org/10.1371/journal.pone.0014290) |
+| `rvt` | reverse transcriptase | bryozoans, annelids, sponges; group II intron-encoded | [Jenkins et al. 2022](https://doi.org/10.1038/s41598-022-14477-3) |
+| `im` | intron maturase | bryozoans (cheilostomes); group II intron-encoded | [Jenkins et al. 2022](https://doi.org/10.1038/s41598-022-14477-3) |
 
 Every CDS is analyzed regardless of name; any protein-coding gene beyond the
 recognized set is still summarized, keeping its raw name prefixed with `?` so

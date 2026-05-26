@@ -80,27 +80,18 @@ PCG_LOOKUP = {
     "mtmuts": "mtMutS", "muts": "mtMutS", "mutsl": "mtMutS",
     "msh1": "mtMutS", "msh": "mtMutS", "mtmsh": "mtMutS",
     "mutshomolog": "mtMutS", "mutsprotein": "mtMutS",
-    # NADH dehydrogenase subunit 7 -- present in some non-bilaterian mitogenomes
-    # (certain cnidarians such as Hydra); absent from standard bilaterian mito.
-    "nad7": "nad7", "nd7": "nad7", "ndh7": "nad7", "nadh7": "nad7",
-    # ATP synthase subunit 9 -- retained in mitogenomes of Trichoplax (placozoa),
-    # some sponges, and some cnidarians; transferred to nucleus in most bilaterians.
+    # ATP synthase subunit 9 -- retained in mitogenomes of some sponges and
+    # cnidarians; transferred to nucleus in most bilaterians.
     "atp9": "atp9", "atpase9": "atp9",
-    # Succinate dehydrogenase subunits 2/3/4 -- found in some cnidarian and
-    # sponge mitogenomes; subunit letters b/c/d = subunit numbers 2/3/4.
-    "sdh2": "sdh2", "sdhb": "sdh2",
-    "sdh3": "sdh3", "sdhc": "sdh3",
-    "sdh4": "sdh4", "sdhd": "sdh4",
-    # Ribosomal protein S3 (rps3) -- common in non-bilaterian mitogenomes,
-    # especially cnidarians (Anthozoa, Hydrozoa) and sponges.
-    "rps3": "rps3",
-    # Ribosomal protein L16 (rpl16) -- found in some cnidarian and sponge mito.
-    "rpl16": "rpl16",
     # Twin-arginine translocase subunit C (tatC) -- present in some sponge
-    # (Amphimedon, Oscarella) and other non-bilaterian mitogenomes.
+    # mitogenomes (e.g. Oscarella, Amphimedon).
     "tatc": "tatC",
-    # DNA polymerase B (polB) -- found in some demosponge mitogenomes.
-    "polb": "polB", "dpo": "polB",
+    # Reverse transcriptase (rvt) -- group II intron RT domain; found in bryozoan,
+    # annelid, and sponge mitogenomes as part of an intron-encoded protein (IEP).
+    "rvt": "rvt", "rt": "rvt", "revtrans": "rvt",
+    # Intron maturase (im) -- group II intron X/maturase domain; promotes splicing
+    # of the host intron; co-occurs with rvt in cheilostome bryozoan mitogenomes.
+    "im": "im", "mat": "im", "maturase": "im",
 }
 
 
@@ -140,10 +131,11 @@ def pcg_from_product(text):
 
     # ATP synthase F0 subunit X / ATPase X. Take the LAST number after the
     # anchor so the "0" in "F0" is skipped (e.g. "ATP synthase F0 subunit 6").
+    # Only subunits 6 and 8 are universally mitochondrially-encoded in metazoans.
     m = re.search(r"(?:atp[^a-z0-9]*synthase|atpase)(.*)$", p)
     if m:
         nums = re.findall(r"[0-9]+", m.group(1))
-        if nums:
+        if nums and nums[-1] in ("6", "8", "9"):
             return "atp" + nums[-1]
 
     # mtMutS / MutS / DNA mismatch-repair protein (octocoral mitogenomes).
@@ -151,31 +143,21 @@ def pcg_from_product(text):
     if re.search(r"\bmt?muts\b", p) or "mismatch repair" in p:
         return "mtMutS"
 
-    # Succinate dehydrogenase subunit X (2/3/4 or b/c/d).
-    m = re.search(
-        r"succinate[^a-z0-9]*dehydrogenase[^a-z0-9]*(?:iron[^a-z0-9]*sulfur[^a-z0-9]*)?(?:subunit)?[^a-z0-9]*([0-9]+|[b-d])\b",
-        p)
-    if m:
-        sub = m.group(1).lower()
-        letter_map = {"b": "2", "c": "3", "d": "4"}
-        return "sdh" + letter_map.get(sub, sub)
-
-    # Ribosomal protein S3.
-    if re.search(r"ribosomal[^a-z0-9]*protein[^a-z0-9]*s[^a-z0-9]*3\b", p):
-        return "rps3"
-
-    # Ribosomal protein L16.
-    if re.search(r"ribosomal[^a-z0-9]*protein[^a-z0-9]*l[^a-z0-9]*16\b", p):
-        return "rpl16"
-
-    # Twin-arginine translocase subunit C.
+    # Twin-arginine translocase subunit C (sponge mitogenomes).
     if re.search(r"twin[^a-z0-9]*arginine[^a-z0-9]*translocase", p) or \
             re.search(r"\btatc?\b", p):
         return "tatC"
 
-    # DNA polymerase B (demosponge mitogenomes).
-    if re.search(r"dna[^a-z0-9]*polymerase[^a-z0-9]*(?:b(?:eta)?\b|type[^a-z0-9]*b\b)", p):
-        return "polB"
+    # Reverse transcriptase / group II intron RT domain (bryozoan/annelid/sponge IEP).
+    if re.search(
+            r"(?:group[^a-z0-9]*ii[^a-z0-9]*(?:intron[^a-z0-9]*)?)?reverse[^a-z0-9]*transcriptase",
+            p):
+        return "rvt"
+
+    # Intron maturase / RNA maturase / intron-encoded protein.
+    if re.search(r"(?:intron[^a-z0-9]*|rna[^a-z0-9]*)?maturase", p) or \
+            re.search(r"intron[^a-z0-9]*encoded[^a-z0-9]*protein", p):
+        return "im"
 
     return None
 

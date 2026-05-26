@@ -3,7 +3,8 @@
 #   1) Download mitogenomes from GenBank for an organism group into <prefix>.gb
 #   2) Summarize start/stop codon usage by gene, flagging non-canonical codons
 #
-# Automatically activates the 'mitoreview' mamba environment if not already active.
+# Automatically activates the 'mitoreview' mamba or conda environment if not
+# already active (mamba is tried first).
 #
 # Usage:
 #   bash mitoreview.sh [OPTIONS] '<query>' <output_prefix>
@@ -15,20 +16,26 @@
 # The 'mitoreview' environment must exist before running this script.
 # Create it once with:
 #   mamba env create -f environment.yml
+# or:
+#   conda env create -f environment.yml
 
 set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # If not already running inside the mitoreview environment, re-exec via
-# 'mamba run' so the user does not need to activate manually.
+# 'mamba run' or 'conda run' so the user does not need to activate manually.
 if [[ "${CONDA_DEFAULT_ENV:-}" != "mitoreview" ]]; then
-    if ! command -v mamba &>/dev/null; then
-        echo "ERROR: mamba not found in PATH." >&2
-        echo "Install mamba or activate the mitoreview environment manually:" >&2
-        echo "  mamba activate mitoreview" >&2
+    if command -v mamba &>/dev/null; then
+        exec mamba run -n mitoreview bash "${BASH_SOURCE[0]}" "$@"
+    elif command -v conda &>/dev/null; then
+        exec conda run -n mitoreview bash "${BASH_SOURCE[0]}" "$@"
+    else
+        echo "ERROR: neither mamba nor conda found in PATH." >&2
+        echo "Install mamba or conda, create the environment, then retry:" >&2
+        echo "  mamba env create -f environment.yml" >&2
+        echo "  conda env create -f environment.yml" >&2
         exit 1
     fi
-    exec mamba run -n mitoreview bash "${BASH_SOURCE[0]}" "$@"
 fi
 
 print_help() {
