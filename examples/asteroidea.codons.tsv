@@ -1,0 +1,389 @@
+record_id	phylum	order	family	species	gene	gene_raw	transl_table	cds_length	codon_start	start_codon	start_canonical	start_flag	stop_codon	stop_canonical	stop_flag	notes
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	nad3	ND3	9	333	1	ATT		partial	TAG	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	nad5	ND5	9	1932	1	GTG	True	ok	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	nad2	ND2	9	1065	1	ATG	True	ok	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	nad1	ND1	9	981	1	GTG	True	ok	TAG	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_001627.1	Echinodermata	Valvatida	Asterinidae	Patiria pectinifera	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	nad2	ND2	9	1062	1	GTG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	nad1	ND1	9	978	1	GTG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	cox1	COX1	9	1551	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	nad4l	ND4L	9	288	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	cox3	COX3	9	780	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	nad3	ND3	9	351	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	nad5	ND5	9	1917	1	ATG	True	ok	TAA	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_006665.1	Echinodermata	Forcipulatida	Asteriidae	Asterias amurensis	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	nad2	ND2	9	1068	1	GTG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	nad1	ND1	9	976	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	nad4l	ND4L	9	297	1	ATT	False	NON-CANONICAL	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	nad3	ND3	9	351	1	ATT	False	NON-CANONICAL	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	nad4	ND4	9	1380	1	ATG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	nad5	ND5	9	1905	1	ATG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	nad6	ND6	9	492	1	ATG	True	ok	TAA	True	ok	
+NC_006666.1	Echinodermata	Paxillosida	Astropectinidae	Astropecten polyacanthus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	nad2	ND2	9	1068	1	GTG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	nad1	ND1	9	978	1	GTG	True	ok	TAG	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	nad4l	ND4L	9	297	1	ATT	False	NON-CANONICAL	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	cox2	COX2	9	693	1	ATG	True	ok	TAG	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	nad3	ND3	9	351	1	ATT	False	NON-CANONICAL	TAG	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	nad4	ND4	9	1380	1	ATG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	nad5	ND5	9	1911	1	ATG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	nad6	ND6	9	492	1	ATG	True	ok	TAA	True	ok	
+NC_006664.1	Echinodermata	Paxillosida	Luidiidae	Luidia quinaria	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	nad2	ND2	9	1065	1	ATG	True	ok	TAG	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	nad1	ND1	9	981	1	GTG	True	ok	TAG	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	cox1	COX1	9	1553	1	ATG	True	ok	TA	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	nad4l	ND4L	9	297	1	ATT	False	NON-CANONICAL	TAA	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	nad3	ND3	9	351	1	ATT	False	NON-CANONICAL	TAA	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	nad5	ND5	9	1902	1	ATG	True	ok	TAA	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_007788.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster planci	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	nad2	ND2	9	1065	1	ATG	True	ok	TAG	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	nad1	ND1	9	981	1	GTG	True	ok	TAG	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	cox1	COX1	9	1553	1	ATG	True	ok	TA	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	nad4l	ND4L	9	297	1	ATT	False	NON-CANONICAL	TAA	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	nad3	ND3	9	351	1	ATT	False	NON-CANONICAL	TAA	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	nad4	ND4	9	1383	1	ATG	True	ok	TAG	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	nad5	ND5	9	1902	1	ATG	True	ok	TAA	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_007789.1	Echinodermata	Valvatida	Acanthasteridae	Acanthaster brevispinus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	nad2	ND2	9	1062	1	ATG	True	ok	TAG	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	nad1	ND1	9	978	1	GTG	True	ok	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	cox1	COX1	9	1552	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	nad4l	ND4L	9	297	1	ATC	False	NON-CANONICAL	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	nad3	ND3	9	351	1	ATG	True	ok	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	nad5	ND5	9	1920	1	ATG	True	ok	TAA	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_025766.1	Echinodermata	Forcipulatida	Asteriidae	Aphelasterias japonica	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	cox1	cytochrome c oxidase subunit I	9	1554	1	ATG	True	ok	TAG	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	nad4l	NADH dehydrogenase subunit 4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	cox2	cytochrome c oxidase subunit II	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	atp8	ATP synthase F0 subunit 8	9	177	1	ATG	True	ok	TAG	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	atp6	ATP synthase F0 subunit 6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	cox3	cytochrome c oxidase subunit III	9	780	1	ATG	True	ok	TAA	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	nad3	NADH dehydrogenase subunit 3	9	351	1	ATT		partial	TAG	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	nad4	NADH dehydrogenase subunit 4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	nad5	NADH dehydrogenase subunit 5	9	1866	1	ATG	True	ok	TAA	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	nad6	NADH dehydrogenase subunit 6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	cob	cytochrome b	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	nad2	NADH dehydrogenase subunit 2	9	1095	1	GTG	True	ok	TAG	True	ok	
+NC_037943.1	Echinodermata	Spinulosida	Echinasteridae	Echinaster brasiliensis	nad1	NADH dehydrogenase subunit 1	9	948	1	GTG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	nad2	ND2	9	1062	1	ATG	True	ok	TAG	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	nad1	ND1	9	972	1	ATG	True	ok	TAG	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	cox1	COX1	9	1557	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	nad4l	ND4L	9	297	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	nad3	ND3	9	351	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	nad4	ND4	9	1386	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	nad5	ND5	9	1920	1	ATG	True	ok	TAA	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_039982.1	Echinodermata	Brisingida	Brisingidae	Freyastera benthophila	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	nad2	ND2	9	1062	1	GTG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	nad1	ND1	9	978	1	GTG	True	ok	TAG	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	nad3	ND3	9	351	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	nad5	ND5	9	1908	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	nad6	ND6	9	492	1	ATG	True	ok	TAA	True	ok	
+NC_041450.1	Echinodermata	Paxillosida	Porcellanasteridae	Styracaster yapensis	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	nad2	ND2	9	1062	1	ATG	True	ok	TAG	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	nad1	ND1	9	978	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	atp6	ATP6	9	687	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	nad3	ND3	9	351	1	ATG	True	ok	TAG	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	nad5	ND5	9	1920	1	ATG	True	ok	TAG	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_042741.1	Echinodermata	Forcipulatida	Asteriidae	Pisaster ochraceus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	nad4l	ND4L	9	297	1	GTC		partial	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	nad3	ND3	9	351	1	ATT		partial	TAG	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	nad4	ND4	9	1383	1	ATG	True	ok	TAG	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	nad5	ND5	9	1899	1	ATG	True	ok	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	nad2	ND2	9	1065	1	GTG	True	ok	TAA	True	ok	
+NC_053361.1	Echinodermata	Velatida	Solasteridae	Crossaster papposus	nad1	ND1	9	975	1	GTG	True	ok	TAG	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	nad6	ND6	9	489	1	GTG	True	ok	TAG	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	nad5	ND5	9	1905	1	ATG	True	ok	TAG	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	cox1	COX1	9	1553	1	ATG	True	ok	TA	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	nad1	ND1	9	981	1	GTG	True	ok	TAG	True	ok	
+NC_054225.1	Echinodermata	Valvatida	Oreasteridae	Pentaceraster mammillatus	nad2	ND2	9	1065	1	ATG	True	ok	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	nad2	ND2	9	1065	1	ATG	True	ok	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	nad1	ND1	9	981	1	GTG	True	ok	TAG	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	cox1	COX1	9	1553	1	ATG	True	ok	TA	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	nad5	ND5	9	1905	1	ATG	True	ok	TAA	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	nad6	ND6	9	489	1	GTG	True	ok	TAG	True	ok	
+NC_054226.1	Echinodermata	Valvatida	Oreasteridae	Protoreaster nodosus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	nad5	ND5	9	1902	1	ATG	True	ok	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	atp8	ATP8	9	177	1	ATG	True	ok	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	nad4l	ND4L	9	297	1	ATC		partial	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	nad1	ND1	9	979	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	nad2	ND2	9	1062	1	GTG	True	ok	TAA	True	ok	
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054227.1	Echinodermata	Valvatida	Ophidiasteridae	Ophidiaster granifer	nad6	ND6	9	486	1	ATG	True	ok	TAG	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	nad1	ND1	9	978	1	ATG	True	ok	TAG	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	nad2	ND2	9	1062	1	ATG	True	ok	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	nad6	ND6	9	492	1	ATG	True	ok	TAG	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	nad5	ND5	9	1905	1	ATG	True	ok	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	atp8	ATP8	9	171	1	ATG	True	ok	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	nad4l	ND4L	9	297	1	ATC		partial	TAA	True	ok	
+NC_054228.1	Echinodermata	Valvatida	Goniasteridae	Iconaster longimanus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	nad1	ND1	9	981	1	GTG	True	ok	TAG	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	nad2	ND2	9	1065	1	ATG	True	ok	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	nad6	ND6	9	489	1	GTG	True	ok	TAG	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	nad5	ND5	9	1905	1	ATG	True	ok	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	nad4	ND4	9	1383	1	ATG	True	ok	TAG	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	nad4l	ND4L	9	297	1	ATC		partial	TAA	True	ok	
+NC_054229.1	Echinodermata	Valvatida	Oreasteridae	Culcita novaeguineae	cox1	COX1	9	1553	1	ATG	True	ok	TA	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	nad5	ND5	9	1908	1	ATG	True	ok	TAA	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	nad4	ND4	9	1383	1	ATG	True	ok	TAG	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	nad4l	ND4L	9	297	1	ATC		partial	TAA	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	nad1	ND1	9	981	1	ATG	True	ok	TAG	True	ok	
+NC_054230.1	Echinodermata	Valvatida	Oreasteridae	Anthenea aspera	nad2	NADH dehydrogenase subunit 2	9	1071	1	GTG	True	ok	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	nad5	ND5	9	1842	1	ATG	True	ok	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	nad4	ND4	9	1377	1	ATG	True	ok	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	nad3	ND3	9	348	1	TTG		partial	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	atp6	ATP6	9	691	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	nad4l	ND4L	9	297	1	ATG		partial	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	nad1	ND1	9	978	1	TTG		partial	TAG	True	ok	
+NC_054231.1	Echinodermata	Velatida	Pterasteridae	Euretaster insignis	nad2	ND2	9	1062	1	GTG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	nad4l	ND4L	9	297	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	atp8	ATP8	9	162	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	atp6	ATP6	9	687	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	nad4	ND4	9	1380	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	nad5	ND5	9	1887	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	nad2	ND2	9	1062	1	ATG	True	ok	TAA	True	ok	
+NC_063668.1	Echinodermata	Spinulosida	Pythonasteridae	Asthenactis papyraceus	nad1	ND1	9	981	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	atp6	ATP6	9	687	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	nad5	ND5	9	1890	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	nad2	ND2	9	1062	1	GTG	True	ok	TAA	True	ok	
+NC_063669.1	Echinodermata	Forcipulatida	Zoroasteridae	Zoroaster ophiactis	nad1	ND1	9	978	1	GTG	True	ok	TAG	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	nad2	ND2	9	1062	1	GTG	True	ok	TAG	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	nad1	ND1	9	978	1	GTG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	nad3	ND3	9	351	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	nad5	ND5	9	1920	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_063787.1	Echinodermata	Forcipulatida	Asteriidae	Coscinasterias acutispina	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	nad5	ND5	9	1911	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	nad6	ND6	9	492	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	nad2	ND2	9	1068	1	GTG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	nad1	ND1	9	978	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_071876.1	Echinodermata	Paxillosida	Ctenodiscidae	Ctenodiscus crispatus	nad3	ND3	9	351	1	ATG	True	ok	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	atp6	ATP6	9	693	1	ATG	True	ok	TAG	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	nad4	ND4	9	1380	1	ATG	True	ok	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	nad5	ND5	9	1908	1	ATG	True	ok	TAG	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	nad6	ND6	9	474	1	ATG	True	ok	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	nad2	ND2	9	1068	1	GTG	True	ok	TAA	True	ok	
+NC_081967.1	Echinodermata	Paxillosida	Astropectinidae	Leptychaster arcticus	nad1	ND1	9	981	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	nad4l	ND4L	9	297	1	GTT		partial	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	nad3	ND3	9	351	1	ATT		partial	TAG	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	nad5	ND5	9	1899	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	nad2	ND2	9	1065	1	GTG	True	ok	TAA	True	ok	
+NC_081981.1	Echinodermata	Velatida	Solasteridae	Crossaster japonicus	nad1	ND1	9	975	1	GTG	True	ok	TAG	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	cox2	COX2	9	690	1	ATG	True	ok	TAG	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	nad3	ND3	9	351	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	nad5	ND5	9	1917	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	nad6	ND6	9	489	1	ATG	True	ok	TAG	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	nad2	ND2	9	1062	1	ATG	True	ok	TAA	True	ok	
+NC_083190.1	Echinodermata	Forcipulatida	Asteriidae	Sclerasterias satsumana	nad1	ND1	9	978	1	ATG	True	ok	TAG	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	nad4l	ND4L	9	297	1	ATT		partial	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	atp8	ATP8	9	168	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	nad4	ND4	9	1383	1	ATG	True	ok	TAG	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	nad5	ND5	9	1923	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	nad2	ND2	9	1065	1	ATG	True	ok	TAA	True	ok	
+NC_083191.1	Echinodermata	Valvatida	Poraniidae	Poraniopsis inflata	nad1	ND1	9	978	1	GTG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	cob	CYTB	9	1158	1	ATG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	nad4	ND4	9	1383	1	ATG	True	ok	TAG	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	cox2	COX2	9	690	1	ATG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	nad4l	ND4L	9	321	1	TTG		partial	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	cox1	COX1	9	1554	1	ATG	True	ok	TAA	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	nad1	ND1	9	981	1	TTG		partial	TAG	True	ok	
+NC_085630.1	Echinodermata	Peripodida	Xyloplacidae	Xyloplax princealberti	nad2	ND2	9	1080	1	ATG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	cox1	COX1	9	1554	1	ATG	True	ok	TAG	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	nad4l	ND4L	9	294	1	ATC		partial	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	cox2	COX2	9	688	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	nad4	ND4	9	1383	1	ATG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	nad5	ND5	9	1881	1	ATG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	nad2	ND2	9	1065	1	GTG	True	ok	TAA	True	ok	
+NC_087784.1	Echinodermata	Spinulosida	Echinasteridae	Henricia reniossa	nad1	ND1	9	978	1	GTG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	cox1	COX1	9	1554	1	ATG	True	ok	TAG	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	nad4l	ND4L	9	294	1	ATC		partial	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	cox2	COX2	9	702	1	ATG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	atp8	ATP8	9	165	1	ATG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	atp6	ATP6	9	693	1	ATG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	cox3	COX3	9	783	1	ATG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	nad3	ND3	9	351	1	ATT		partial	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	nad4	ND4	9	1383	1	ATG	True	ok	TAG	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	nad5	ND5	9	1878	1	ATG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	nad6	ND6	9	489	1	ATG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	cob	CYTB	9	1138	1	ATG	True	ok	T	True	polyA	stop codon completed by poly-A tail (TAA)
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	nad2	ND2	9	1065	1	ATG	True	ok	TAA	True	ok	
+NC_087785.1	Echinodermata	Spinulosida	Echinasteridae	Henricia sanguinolenta	nad1	ND1	9	978	1	ATG	True	ok	TAA	True	ok	

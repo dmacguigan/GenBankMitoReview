@@ -1,0 +1,305 @@
+================================================================================
+GENETIC CODE TABLE SUMMARY
+================================================================================
+
+  Table 9: Echinoderm Mitochondrial   (30 record(s))
+    Canonical start codons: ATG, GTG
+    Canonical stop codons:  TAA, TAG
+
+================================================================================
+MITOGENOME START/STOP CODON SUMMARY BY GENE
+================================================================================
+
+Total CDS analyzed: 388  across 13 gene group(s)
+Canonical status uses each record's /transl_table genetic code.
+'polyA' = T/TA stop codon completed to canonical TAA by polyadenylation.
+'partial' = genuinely truncated/fuzzy end; not judged.
+
+================================================================================
+Gene: atp6   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=687   max=693   mean=692.3   sd=1.8
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     30 (100.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      TAA     28 ( 93.3%)
+      T        1 (  3.3%)  [polyA-completed]
+      TAG      1 (  3.3%)
+    polyA-completed stop (T/TA→TAA): 1/30 (3.3%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+Gene: atp8   (n = 29 CDS, 29 complete, 0 partial)
+  Length (bp):  min=162   max=177   mean=167.2   sd=3.2
+--------------------------------------------------------------------------------
+  Complete CDS (29):
+    Start codons:
+      ATG     29 (100.0%)
+    Non-canonical start: 0/29 (0.0%)
+    Stop codons:
+      TAA     28 ( 96.6%)
+      TAG      1 (  3.4%)
+    Non-canonical stop: 0/29 (0.0%)
+
+================================================================================
+Gene: cob   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=1138   max=1158   mean=1138.7   sd=3.6
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     30 (100.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      T       29 ( 96.7%)  [polyA-completed]
+      TAA      1 (  3.3%)
+    polyA-completed stop (T/TA→TAA): 29/30 (96.7%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+Gene: cox1   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=1551   max=1557   mean=1553.8   sd=0.9
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     30 (100.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      TAA     21 ( 70.0%)
+      TA       5 ( 16.7%)  [polyA-completed]
+      TAG      3 ( 10.0%)
+      T        1 (  3.3%)  [polyA-completed]
+    polyA-completed stop (T/TA→TAA): 6/30 (20.0%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+Gene: cox2   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=688   max=702   mean=689.2   sd=2.7
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     30 (100.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      T       19 ( 63.3%)  [polyA-completed]
+      TAA      9 ( 30.0%)
+      TAG      2 (  6.7%)
+    polyA-completed stop (T/TA→TAA): 19/30 (63.3%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+Gene: cox3   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=780   max=783   mean=782.8   sd=0.7
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     30 (100.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      TAA     30 (100.0%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+Gene: nad1   (n = 30 CDS, 28 complete, 2 partial)
+  Length (bp):  min=948   max=981   mean=977.6   sd=5.9
+--------------------------------------------------------------------------------
+  Complete CDS (28):
+    Start codons:
+      GTG     17 ( 60.7%)
+      ATG     11 ( 39.3%)
+    Non-canonical start: 0/28 (0.0%)
+    Stop codons:
+      TAG     15 ( 53.6%)
+      TAA     11 ( 39.3%)
+      T        2 (  7.1%)  [polyA-completed]
+    polyA-completed stop (T/TA→TAA): 2/28 (7.1%)
+    Non-canonical stop: 0/28 (0.0%)
+  Partial CDS (2):
+    NC_054231.1 (Euretaster insignis): start TTG (partial), stop  TAG (ok)
+    NC_085630.1 (Xyloplax princealberti): start TTG (partial), stop  TAG (ok)
+
+================================================================================
+Gene: nad2   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=1062   max=1095   mean=1065.9   sd=6.5
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     15 ( 50.0%)
+      GTG     15 ( 50.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      TAA     23 ( 76.7%)
+      TAG      7 ( 23.3%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+Gene: nad3   (n = 30 CDS, 12 complete, 18 partial)
+  Length (bp):  min=333   max=351   mean=350.3   sd=3.3
+--------------------------------------------------------------------------------
+  Complete CDS (12):
+    Start codons:
+      ATG      8 ( 66.7%)
+      ATT      4 ( 33.3%)  [NON-CANONICAL]
+    Non-canonical start: 4/12 (33.3%)
+    Stop codons:
+      TAA     10 ( 83.3%)
+      TAG      2 ( 16.7%)
+    Non-canonical stop: 0/12 (0.0%)
+  Partial CDS (18):
+    NC_001627.1 (Patiria pectinifera): start ATT (partial), stop  TAG (ok)
+    NC_037943.1 (Echinaster brasiliensis): start ATT (partial), stop  TAG (ok)
+    NC_053361.1 (Crossaster papposus): start ATT (partial), stop  TAG (ok)
+    NC_054225.1 (Pentaceraster mammillatus): start ATT (partial), stop  TAA (ok)
+    NC_054226.1 (Protoreaster nodosus): start ATT (partial), stop  TAA (ok)
+    NC_054227.1 (Ophidiaster granifer): start ATT (partial), stop  TAA (ok)
+    NC_054228.1 (Iconaster longimanus): start ATT (partial), stop  TAA (ok)
+    NC_054229.1 (Culcita novaeguineae): start ATT (partial), stop  TAA (ok)
+    NC_054230.1 (Anthenea aspera): start ATT (partial), stop  TAA (ok)
+    NC_054231.1 (Euretaster insignis): start TTG (partial), stop  TAA (ok)
+    NC_063668.1 (Asthenactis papyraceus): start ATT (partial), stop  TAA (ok)
+    NC_063669.1 (Zoroaster ophiactis): start ATT (partial), stop  TAA (ok)
+    NC_081967.1 (Leptychaster arcticus): start ATT (partial), stop  TAA (ok)
+    NC_081981.1 (Crossaster japonicus): start ATT (partial), stop  TAG (ok)
+    NC_083191.1 (Poraniopsis inflata): start ATT (partial), stop  TAA (ok)
+    NC_085630.1 (Xyloplax princealberti): start ATT (partial), stop  TAA (ok)
+    NC_087784.1 (Henricia reniossa): start ATT (partial), stop  TAA (ok)
+    NC_087785.1 (Henricia sanguinolenta): start ATT (partial), stop  TAA (ok)
+
+================================================================================
+Gene: nad4   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=1377   max=1386   mean=1382.5   sd=1.6
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     30 (100.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      TAA     23 ( 76.7%)
+      TAG      7 ( 23.3%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+Gene: nad4l   (n = 30 CDS, 8 complete, 22 partial)
+  Length (bp):  min=288   max=321   mean=297.3   sd=4.7
+--------------------------------------------------------------------------------
+  Complete CDS (8):
+    Start codons:
+      ATT      4 ( 50.0%)  [NON-CANONICAL]
+      ATG      3 ( 37.5%)
+      ATC      1 ( 12.5%)  [NON-CANONICAL]
+    Non-canonical start: 5/8 (62.5%)
+    Stop codons:
+      TAA      8 (100.0%)
+    Non-canonical stop: 0/8 (0.0%)
+  Partial CDS (22):
+    NC_001627.1 (Patiria pectinifera): start ATT (partial), stop  TAA (ok)
+    NC_037943.1 (Echinaster brasiliensis): start ATT (partial), stop  TAA (ok)
+    NC_041450.1 (Styracaster yapensis): start ATT (partial), stop  TAA (ok)
+    NC_042741.1 (Pisaster ochraceus): start ATT (partial), stop  TAA (ok)
+    NC_053361.1 (Crossaster papposus): start GTC (partial), stop  TAA (ok)
+    NC_054225.1 (Pentaceraster mammillatus): start ATT (partial), stop  TAA (ok)
+    NC_054226.1 (Protoreaster nodosus): start ATT (partial), stop  TAA (ok)
+    NC_054227.1 (Ophidiaster granifer): start ATC (partial), stop  TAA (ok)
+    NC_054228.1 (Iconaster longimanus): start ATC (partial), stop  TAA (ok)
+    NC_054229.1 (Culcita novaeguineae): start ATC (partial), stop  TAA (ok)
+    NC_054230.1 (Anthenea aspera): start ATC (partial), stop  TAA (ok)
+    NC_054231.1 (Euretaster insignis): start ATG (partial), stop  TAA (ok)
+    NC_063669.1 (Zoroaster ophiactis): start ATT (partial), stop  TAA (ok)
+    NC_063787.1 (Coscinasterias acutispina): start ATT (partial), stop  TAA (ok)
+    NC_071876.1 (Ctenodiscus crispatus): start ATT (partial), stop  TAA (ok)
+    NC_081967.1 (Leptychaster arcticus): start ATT (partial), stop  TAA (ok)
+    NC_081981.1 (Crossaster japonicus): start GTT (partial), stop  TAA (ok)
+    NC_083190.1 (Sclerasterias satsumana): start ATT (partial), stop  TAA (ok)
+    NC_083191.1 (Poraniopsis inflata): start ATT (partial), stop  TAA (ok)
+    NC_085630.1 (Xyloplax princealberti): start TTG (partial), stop  TAA (ok)
+    NC_087784.1 (Henricia reniossa): start ATC (partial), stop  TAA (ok)
+    NC_087785.1 (Henricia sanguinolenta): start ATC (partial), stop  TAA (ok)
+
+================================================================================
+Gene: nad5   (n = 29 CDS, 29 complete, 0 partial)
+  Length (bp):  min=1842   max=1932   mean=1903.0   sd=18.3
+--------------------------------------------------------------------------------
+  Complete CDS (29):
+    Start codons:
+      ATG     28 ( 96.6%)
+      GTG      1 (  3.4%)
+    Non-canonical start: 0/29 (0.0%)
+    Stop codons:
+      TAA     26 ( 89.7%)
+      TAG      3 ( 10.3%)
+    Non-canonical stop: 0/29 (0.0%)
+
+================================================================================
+Gene: nad6   (n = 30 CDS, 30 complete, 0 partial)
+  Length (bp):  min=474   max=492   mean=488.9   sd=3.0
+--------------------------------------------------------------------------------
+  Complete CDS (30):
+    Start codons:
+      ATG     27 ( 90.0%)
+      GTG      3 ( 10.0%)
+    Non-canonical start: 0/30 (0.0%)
+    Stop codons:
+      TAA     15 ( 50.0%)
+      TAG     15 ( 50.0%)
+    Non-canonical stop: 0/30 (0.0%)
+
+================================================================================
+NON-CODING FEATURE SUMMARY
+================================================================================
+
+Total: 707 non-coding features across 30 record(s)
+
+================================================================================
+tRNA
+--------------------------------------------------------------------------------
+  Count per genome (n=30 records): min=19  max=22  mean=21.7
+
+  Gene                      n  min (bp)  max (bp)  mean (bp)  median (bp)
+  --------------------  -----  --------  --------  ---------  -----------
+  tRNA-Ala                 30        68        73       71.1         72.0
+  tRNA-Arg                 30        46        72       68.4         69.0
+  tRNA-Asn                 30        72        73       72.0         72.0
+  tRNA-Asp                 29        69        75       70.4         70.0
+  tRNA-Cys                 30        66        73       69.3         69.0
+  tRNA-Gln                 30        71        74       71.8         72.0
+  tRNA-Glu                 30        67        73       69.2         69.0
+  tRNA-Gly                 30        67        72       69.3         69.0
+  tRNA-His                 30        67        72       69.2         69.0
+  tRNA-Ile                 30        59        74       71.4         72.0
+  tRNA-Leu                 60        71        74       72.4         72.0
+  tRNA-Lys                 28        57        76       72.3         72.0
+  tRNA-Met                 30        68        75       72.0         72.0
+  tRNA-Phe                 30        50        76       71.1         72.0
+  tRNA-Pro                 30        69        76       70.8         71.0
+  tRNA-Ser                 57        67        73       69.8         70.0
+  tRNA-Thr                 30        69        76       71.7         71.5
+  tRNA-Trp                 27        69        73       69.6         69.0
+  tRNA-Tyr                 30        69        72       70.7         71.0
+  tRNA-Val                 30        62        75       70.6         71.0
+
+  tRNA copy number per genome (genes present >1x in at least one record):
+  Gene                    1 copy   2 copies   3+ copies
+  --------------------  --------  ---------  ----------
+  tRNA-Leu                     0         30           0
+  tRNA-Ser                     3         27           0
+
+================================================================================
+rRNA
+--------------------------------------------------------------------------------
+  Count per genome (n=27 records): min=2  max=2  mean=2.0
+
+  Gene                      n  min (bp)  max (bp)  mean (bp)  median (bp)
+  --------------------  -----  --------  --------  ---------  -----------
+  12S rRNA                 27       885       929      902.1        898.0
+  16S rRNA                 27      1531      1646     1596.1       1603.0
+
+================================================================================
+Control Region
+--------------------------------------------------------------------------------
+  Count per genome (n=2 records): min=1  max=1  mean=1.0
+
+  Gene                      n  min (bp)  max (bp)  mean (bp)  median (bp)
+  --------------------  -----  --------  --------  ---------  -----------
+  control region            2       531       552      541.5        541.5
+
