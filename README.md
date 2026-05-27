@@ -15,6 +15,9 @@ appropriate genetic code.
    used to judge whether a codon is canonical. Non-canonical start/stop codons
    are flagged.
 3. **Calculate** and summarize protein-coding gene lengths.
+4. **Summarize tRNA, rRNA, and control region** counts and lengths per genome,
+   with dedicated plots — automatically enabled when `--complete` or `--refseq`
+   is used.
 
 Codons are read from the CDS features themselves, respecting strand, spliced
 (`join`) locations, reading frame (`/codon_start`), and the genetic code.
@@ -50,8 +53,10 @@ bash mitoreview.sh [--complete] [--refseq] '<query>' <output_prefix>
 - `<query>`: an advanced GenBank search term in **single quotes**, e.g.
   `'"Percidae"[Organism]'` or `'"Percidae"[Organism] AND "PRJNA720393"[BioProject]'`
   (see <https://www.ncbi.nlm.nih.gov/nuccore/advanced>).
-- `--complete`: restrict to records titled "complete genome".
-- `--refseq`: restrict to RefSeq records (`NC_*` accessions).
+- `--complete`: restrict to records titled "complete genome"; also enables
+  tRNA/rRNA/control region summary stats and plots.
+- `--refseq`: restrict to RefSeq records (`NC_*` accessions); also enables
+  tRNA/rRNA/control region summary stats and plots.
 - `--outdir <dir>`: write all output to this directory (created if absent).
 - `--api-key <key>`: NCBI API key for higher request rate.
 
@@ -83,6 +88,17 @@ python summarize_codons.py percidae.gb -o percidae             # -> per-CDS tabl
 - `<prefix>.fig_geneLen_ridgeline.png` — ridgeline plot of CDS length distributions by gene.
 - A per-gene text summary printed to screen: codon distributions, length stats,
   and the count and identity of non-canonical calls.
+
+With `--complete` or `--refseq`, the pipeline also produces:
+
+- `<prefix>.noncoding.tsv` — one row per tRNA, rRNA, or control region feature:
+  `record_id`, `feature_type`, `gene_name`, `length`.
+- `<prefix>.fig_noncoding_counts.png` — box + strip plot of tRNA, rRNA, and
+  control region counts per genome.
+- `<prefix>.fig_trna_lengths.png` — ridgeline plot of tRNA length distributions
+  by gene (sorted by median length).
+- `<prefix>.fig_rrna_cr_lengths.png` — box plot of rRNA (12S/16S) lengths and
+  histogram of control region lengths.
 
 A `polyA` flag marks T or TA stop codons completed to canonical TAA by
 polyadenylation; these are counted as complete and canonical in all summaries and

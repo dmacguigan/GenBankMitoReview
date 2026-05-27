@@ -45,6 +45,76 @@ try:
 except ImportError:
     _HAVE_MPL = False
 
+# --- report CSS -------------------------------------------------------------
+_REPORT_CSS = """<style>
+body {
+    font-family: sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1em 2em;
+    color: #1a1a1a;
+}
+h1 {
+    border-bottom: 3px solid #1a5276;
+    padding-bottom: 6px;
+    color: #1a5276;
+}
+h2 {
+    border-bottom: 2px solid #aab7b8;
+    padding-bottom: 4px;
+    color: #2c3e50;
+    margin-top: 2em;
+}
+h3 {
+    border-left: 5px solid #2980b9;
+    background-color: #eaf4fb;
+    padding: 5px 10px;
+    margin-top: 1.8em;
+    color: #1a5276;
+    font-family: monospace;
+    font-size: 1.5em;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: 10pt;
+}
+th {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 5px 10px;
+    text-align: left;
+}
+td {
+    padding: 4px 10px;
+    border: 1px solid #d5d8dc;
+}
+tr:nth-child(even) td {
+    background-color: #f4f6f7;
+}
+td strong {
+    color: #c0392b;
+    background-color: #fdecea;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+hr {
+    border: none;
+    border-top: 1px solid #d5d8dc;
+    margin: 2em 0;
+}
+code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 0.95em;
+}
+</style>
+"""
+
 # --- protein-coding-gene name normalization ---------------------------------
 # Mitochondrial PCGs appear under many synonyms in GenBank /gene and /product
 # qualifiers. This maps them to a single canonical label so codon usage is
@@ -213,6 +283,92 @@ def get_gene_label(feature):
     return ("?" + raw.strip()) if raw.strip() else "?unknown", raw
 
 
+# --- non-coding feature name normalization ----------------------------------
+
+_TRNA_AA_3L = {
+    "ala": "Ala", "arg": "Arg", "asn": "Asn", "asp": "Asp", "cys": "Cys",
+    "gln": "Gln", "glu": "Glu", "gly": "Gly", "his": "His", "ile": "Ile",
+    "leu": "Leu", "lys": "Lys", "met": "Met", "phe": "Phe", "pro": "Pro",
+    "ser": "Ser", "thr": "Thr", "trp": "Trp", "tyr": "Tyr", "val": "Val",
+}
+_TRNA_AA_1L = {
+    "a": "Ala", "r": "Arg", "n": "Asn", "d": "Asp", "c": "Cys",
+    "q": "Gln", "e": "Glu", "g": "Gly", "h": "His", "i": "Ile",
+    "l": "Leu", "k": "Lys", "m": "Met", "f": "Phe", "p": "Pro",
+    "s": "Ser", "t": "Thr", "w": "Trp", "y": "Tyr", "v": "Val",
+}
+
+
+def _normalize_trna_name(feature):
+    """Return canonical tRNA gene name (e.g., 'tRNA-Ala') from a tRNA feature."""
+    for qkey in ("gene", "product"):
+        for val in feature.qualifiers.get(qkey, []):
+            m = re.search(r'tRNA[-_\s]([A-Za-z]{1,4})', val, re.IGNORECASE)
+            if m:
+                aa = m.group(1)
+                if len(aa) == 1:
+                    mapped = _TRNA_AA_1L.get(aa.lower())
+                    if mapped:
+                        return f"tRNA-{mapped}"
+                elif len(aa) in (3, 4):
+                    mapped = _TRNA_AA_3L.get(aa[:3].lower())
+                    if mapped:
+                        return f"tRNA-{mapped}"
+            m = re.match(r'trn([A-Za-z])(?:[0-9]|$)', val)
+            if m:
+                mapped = _TRNA_AA_1L.get(m.group(1).lower())
+                if mapped:
+                    return f"tRNA-{mapped}"
+    return "tRNA-?"
+
+
+def _normalize_rrna_name(feature):
+    """Return '12S rRNA' or '16S rRNA' from an rRNA feature."""
+    for qkey in ("gene", "product"):
+        for val in feature.qualifiers.get(qkey, []):
+            v = val.lower()
+            if "12s" in v or "s-rrna" in v or "small subunit" in v:
+                return "12S rRNA"
+            if "16s" in v or "l-rrna" in v or "large subunit" in v:
+                return "16S rRNA"
+    return "rRNA"
+
+
+def _analyze_noncoding_feature(feature, record_id):
+    """Return a noncoding row dict for tRNA/rRNA/control region, or None to skip."""
+    if feature.type == "tRNA":
+        return {
+            "record_id": record_id,
+            "feature_type": "tRNA",
+            "gene_name": _normalize_trna_name(feature),
+            "length": len(feature.location),
+        }
+    if feature.type == "rRNA":
+        return {
+            "record_id": record_id,
+            "feature_type": "rRNA",
+            "gene_name": _normalize_rrna_name(feature),
+            "length": len(feature.location),
+        }
+    if feature.type in ("D-loop", "D_loop"):
+        return {
+            "record_id": record_id,
+            "feature_type": "control_region",
+            "gene_name": "control region",
+            "length": len(feature.location),
+        }
+    if feature.type == "misc_feature":
+        note = " ".join(feature.qualifiers.get("note", [])).lower()
+        if re.search(r'\b(control[\s_-]?region|d[\s-]?loop)\b', note):
+            return {
+                "record_id": record_id,
+                "feature_type": "control_region",
+                "gene_name": "control region",
+                "length": len(feature.location),
+            }
+    return None
+
+
 def get_transl_table(feature, record):
     """Genetic-code table id for a CDS: feature /transl_table, else the source
     feature's, else None (unknown)."""
@@ -375,6 +531,14 @@ def write_tsv(rows, path):
         for r in rows:
             fh.write("\t".join(str(r[c]) if r[c] is not None else "" for c in cols) + "\n")
 
+
+def write_noncoding_tsv(noncoding_rows, path):
+    cols = ["record_id", "feature_type", "gene_name", "length"]
+    with open(path, "w") as fh:
+        fh.write("\t".join(cols) + "\n")
+        for r in noncoding_rows:
+            fh.write("\t".join(str(r[c]) for c in cols) + "\n")
+
 def _build_summary_text(rows):
     """Return the full per-gene codon summary as a string (for stdout and files)."""
     lines = []
@@ -441,16 +605,28 @@ def _build_summary_text(rows):
             nc_start = [r for r in complete if r["start_flag"] == "NON-CANONICAL"]
             nc_stop  = [r for r in complete if r["stop_flag"]  == "NON-CANONICAL"]
 
+            start_flags = defaultdict(set)
+            stop_flags  = defaultdict(set)
+            for r in complete:
+                start_flags[r["start_codon"]].add(r["start_flag"])
+                stop_flags[r["stop_codon"]].add(r["stop_flag"])
+
+            def _txt_tag(flags):
+                if "NON-CANONICAL" in flags:
+                    return "  [NON-CANONICAL]" + ("" if flags <= {"NON-CANONICAL"} else " [mixed]")
+                if "polyA" in flags:
+                    return "  [polyA-completed]"
+                return ""
+
             w(f"  Complete CDS ({nc}):")
             w("    Start codons:")
             for codon, c in sorted(starts.items(), key=lambda x: (-x[1], x[0])):
-                w(f"      {codon:<5s} {c:4d} ({100*c/nc:5.1f}%)")
+                w(f"      {codon:<5s} {c:4d} ({100*c/nc:5.1f}%){_txt_tag(start_flags[codon])}")
             w(f"    Non-canonical start: {len(nc_start)}/{nc} ({100*len(nc_start)/nc:.1f}%)")
 
             w("    Stop codons:")
             for codon, c in sorted(stops.items(), key=lambda x: (-x[1], x[0])):
-                tag = "  [polyA-completed]" if codon in ("T", "TA") else ""
-                w(f"      {codon:<5s} {c:4d} ({100*c/nc:5.1f}%){tag}")
+                w(f"      {codon:<5s} {c:4d} ({100*c/nc:5.1f}%){_txt_tag(stop_flags[codon])}")
             n_polya = sum(1 for r in complete if r["stop_flag"] == "polyA")
             if n_polya:
                 w(f"    polyA-completed stop (T/TA→TAA): {n_polya}/{nc} ({100*n_polya/nc:.1f}%)")
@@ -474,6 +650,79 @@ def print_summary(rows, path=None):
     if path is not None:
         with open(path, "w") as fh:
             fh.write(text + "\n")
+
+
+def _build_noncoding_summary_text(noncoding_rows):
+    """Plain-text non-coding feature summary for stdout and summary.txt."""
+    lines = []
+    w = lines.append
+
+    n_records = len(set(r["record_id"] for r in noncoding_rows))
+    counts_per_record = defaultdict(lambda: defaultdict(int))
+    for r in noncoding_rows:
+        counts_per_record[r["record_id"]][r["feature_type"]] += 1
+
+    w("=" * 80)
+    w("NON-CODING FEATURE SUMMARY")
+    w("=" * 80)
+    w(f"\nTotal: {len(noncoding_rows)} non-coding features across {n_records} record(s)\n")
+
+    for ftype, label in [("tRNA", "tRNA"), ("rRNA", "rRNA"), ("control_region", "Control Region")]:
+        type_rows = [r for r in noncoding_rows if r["feature_type"] == ftype]
+        if not type_rows:
+            continue
+
+        w("=" * 80)
+        w(label)
+        w("-" * 80)
+
+        counts_present = [counts_per_record[rid][ftype]
+                          for rid in counts_per_record
+                          if counts_per_record[rid][ftype] > 0]
+        if counts_present:
+            mean_c = sum(counts_present) / len(counts_present)
+            w(f"  Count per genome (n={len(counts_present)} records): "
+              f"min={min(counts_present)}  max={max(counts_present)}  mean={mean_c:.1f}")
+
+        by_gene = defaultdict(list)
+        for r in type_rows:
+            by_gene[r["gene_name"]].append(r["length"])
+
+        w("")
+        w(f"  {'Gene':<20s}  {'n':>5s}  {'min (bp)':>8s}  {'max (bp)':>8s}"
+          f"  {'mean (bp)':>9s}  {'median (bp)':>11s}")
+        w(f"  {'-'*20}  {'-'*5}  {'-'*8}  {'-'*8}  {'-'*9}  {'-'*11}")
+        for gene in sorted(by_gene):
+            lens = by_gene[gene]
+            n    = len(lens)
+            mean_l = sum(lens) / n
+            sl = sorted(lens)
+            median_l = (sl[n // 2] if n % 2 == 1 else (sl[n//2 - 1] + sl[n//2]) / 2)
+            w(f"  {gene:<20s}  {n:>5d}  {min(lens):>8d}  {max(lens):>8d}"
+              f"  {mean_l:>9.1f}  {median_l:>11.1f}")
+
+        if ftype == "tRNA":
+            trna_copies = defaultdict(lambda: defaultdict(int))
+            for r in type_rows:
+                trna_copies[r["record_id"]][r["gene_name"]] += 1
+            dup_genes = sorted(
+                gene for gene in by_gene
+                if any(trna_copies[rid][gene] > 1 for rid in trna_copies)
+            )
+            if dup_genes:
+                w("")
+                w("  tRNA copy number per genome (genes present >1x in at least one record):")
+                w(f"  {'Gene':<20s}  {'1 copy':>8s}  {'2 copies':>9s}  {'3+ copies':>10s}")
+                w(f"  {'-'*20}  {'-'*8}  {'-'*9}  {'-'*10}")
+                for gene in dup_genes:
+                    c1 = sum(1 for rid in trna_copies if trna_copies[rid][gene] == 1)
+                    c2 = sum(1 for rid in trna_copies if trna_copies[rid][gene] == 2)
+                    c3 = sum(1 for rid in trna_copies if trna_copies[rid][gene] >= 3)
+                    w(f"  {gene:<20s}  {c1:>8d}  {c2:>9d}  {c3:>10d}")
+
+        w("")
+
+    return "\n".join(lines)
 
 
 # ── figure helpers (require matplotlib) ─────────────────────────────────────
@@ -647,6 +896,149 @@ def _length_ridgeline_fig(rows):
     return fig
 
 
+def _noncoding_count_fig(noncoding_rows):
+    """Box + strip plot of tRNA, rRNA, and control region counts per genome."""
+    counts = defaultdict(lambda: defaultdict(int))
+    for r in noncoding_rows:
+        counts[r["record_id"]][r["feature_type"]] += 1
+
+    all_records = sorted(counts.keys())
+    if not all_records:
+        return None
+
+    categories = [("tRNA", "tRNA"), ("rRNA", "rRNA"), ("control_region", "Control Region")]
+    present = [(k, lbl) for k, lbl in categories
+               if any(counts[rid][k] > 0 for rid in all_records)]
+    if not present:
+        return None
+
+    rng = np.random.default_rng(42)
+    fig, ax = plt.subplots(figsize=(max(4, len(present) * 2.5), 5))
+
+    for i, (k, lbl) in enumerate(present):
+        vals = np.array([counts[rid][k] for rid in all_records], dtype=float)
+        bp = ax.boxplot(vals, positions=[i], widths=0.45, patch_artist=True,
+                        medianprops=dict(color="black", linewidth=2),
+                        whiskerprops=dict(linewidth=1.2),
+                        capprops=dict(linewidth=1.2))
+        bp["boxes"][0].set_facecolor("#4a90d9")
+        bp["boxes"][0].set_alpha(0.6)
+        jitter = rng.uniform(-0.12, 0.12, size=len(vals))
+        ax.scatter(i + jitter, vals, alpha=0.4, s=12, color="#1a5276", zorder=3)
+
+    ax.set_xticks(list(range(len(present))))
+    ax.set_xticklabels([lbl for _, lbl in present], fontsize=11)
+    ax.set_ylabel("Count per genome", fontsize=11)
+    ax.set_title("Non-coding feature counts per genome", fontsize=12, fontweight="bold")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    fig.tight_layout()
+    return fig
+
+
+def _noncoding_trna_length_fig(noncoding_rows):
+    """Ridgeline plot of tRNA lengths by gene name, sorted by median length."""
+    trna_rows = [r for r in noncoding_rows if r["feature_type"] == "tRNA"]
+    if not trna_rows:
+        return None
+
+    by_gene = defaultdict(list)
+    for r in trna_rows:
+        by_gene[r["gene_name"]].append(r["length"])
+
+    genes      = sorted(by_gene, key=lambda g: float(np.median(by_gene[g])))
+    all_lengths = [r["length"] for r in trna_rows]
+    x_min       = max(0, min(all_lengths) - 20)
+    x_max       = max(all_lengths) + 20
+    x_pts       = np.linspace(x_min, x_max, 400)
+
+    n_genes    = len(genes)
+    row_height = 1.0
+    overlap    = 0.85
+    cmap       = plt.get_cmap("tab20")
+    colors     = [cmap(i / max(n_genes, 1)) for i in range(n_genes)]
+
+    fig, ax = plt.subplots(figsize=(9, max(4, n_genes * 0.55 + 1)))
+
+    for i, gene in enumerate(genes):
+        lengths = np.array(by_gene[gene], dtype=float)
+        y_base  = i * row_height
+        kde     = _gaussian_kde(lengths, x_pts)
+        if kde.max() > 0:
+            y_vals = y_base + kde * (overlap * row_height / kde.max())
+        else:
+            y_vals = np.full_like(x_pts, y_base)
+        color = colors[i]
+        ax.fill_between(x_pts, y_base, y_vals, alpha=0.75, color=color, linewidth=0)
+        ax.plot(x_pts, y_vals, color=color, linewidth=0.9)
+
+    ax.set_yticks([i * row_height for i in range(n_genes)])
+    ax.set_yticklabels(genes, fontsize=9)
+    ax.set_ylim(-0.5 * row_height, n_genes * row_height)
+    ax.set_xlabel("Length (bp)")
+    ax.set_title("tRNA length distribution by gene")
+    for spine in ("left", "right", "top"):
+        ax.spines[spine].set_visible(False)
+    ax.tick_params(axis="y", length=0)
+    fig.tight_layout()
+    return fig
+
+
+def _noncoding_rrna_cr_length_fig(noncoding_rows):
+    """Box + strip for rRNA lengths (by gene) and histogram for control region lengths."""
+    rrna_rows = [r for r in noncoding_rows if r["feature_type"] == "rRNA"]
+    cr_rows   = [r for r in noncoding_rows if r["feature_type"] == "control_region"]
+
+    if not rrna_rows and not cr_rows:
+        return None
+
+    panels = (["rRNA"] if rrna_rows else []) + (["control_region"] if cr_rows else [])
+    fig, axes = plt.subplots(1, len(panels), figsize=(5 * len(panels), 5))
+    if len(panels) == 1:
+        axes = [axes]
+
+    rng = np.random.default_rng(42)
+    panel_idx = 0
+
+    if rrna_rows:
+        ax = axes[panel_idx]; panel_idx += 1
+        by_gene = defaultdict(list)
+        for r in rrna_rows:
+            by_gene[r["gene_name"]].append(r["length"])
+        genes = sorted(by_gene)
+        for i, gene in enumerate(genes):
+            vals = np.array(by_gene[gene], dtype=float)
+            bp = ax.boxplot(vals, positions=[i], widths=0.45, patch_artist=True,
+                            medianprops=dict(color="black", linewidth=2),
+                            whiskerprops=dict(linewidth=1.2),
+                            capprops=dict(linewidth=1.2))
+            bp["boxes"][0].set_facecolor("#27ae60")
+            bp["boxes"][0].set_alpha(0.6)
+            jitter = rng.uniform(-0.12, 0.12, size=len(vals))
+            ax.scatter(i + jitter, vals, alpha=0.4, s=12, color="#145a32", zorder=3)
+        ax.set_xticks(list(range(len(genes))))
+        ax.set_xticklabels(genes, fontsize=10)
+        ax.set_ylabel("Length (bp)")
+        ax.set_title("rRNA lengths", fontsize=11, fontweight="bold")
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+
+    if cr_rows:
+        ax = axes[panel_idx]
+        cr_lengths = [r["length"] for r in cr_rows]
+        n_bins = min(30, max(5, len(cr_lengths) // 5 + 1))
+        ax.hist(cr_lengths, bins=n_bins, color="#8e44ad", alpha=0.75,
+                edgecolor="white", linewidth=0.5)
+        ax.set_xlabel("Length (bp)")
+        ax.set_ylabel("Count")
+        ax.set_title("Control region lengths", fontsize=11, fontweight="bold")
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+
+    fig.tight_layout()
+    return fig
+
+
 def _build_summary_md(rows):
     """Per-gene codon summary formatted as Markdown for embedding in the report."""
     lines = []
@@ -715,12 +1107,26 @@ def _build_summary_md(rows):
             nc_start = [r for r in complete if r["start_flag"] == "NON-CANONICAL"]
             nc_stop  = [r for r in complete if r["stop_flag"]  == "NON-CANONICAL"]
 
+            start_flags = defaultdict(set)
+            stop_flags  = defaultdict(set)
+            for r in complete:
+                start_flags[r["start_codon"]].add(r["start_flag"])
+                stop_flags[r["stop_codon"]].add(r["stop_flag"])
+
+            def _md_status(flags):
+                if "NON-CANONICAL" in flags:
+                    return ("**NON-CANONICAL**" if flags <= {"NON-CANONICAL"}
+                            else "**NON-CANONICAL** *(mixed)*")
+                if "polyA" in flags:
+                    return "polyA"
+                return "ok"
+
             w("**Start codons**")
             w("")
-            w("| Codon | n | % |")
-            w("|:------|--:|--:|")
+            w("| Codon | n | % | Status |")
+            w("|:------|--:|--:|:-------|")
             for codon, c in sorted(starts.items(), key=lambda x: (-x[1], x[0])):
-                w(f"| `{codon}` | {c} | {100*c/nc:.1f}% |")
+                w(f"| `{codon}` | {c} | {100*c/nc:.1f}% | {_md_status(start_flags[codon])} |")
             w("")
             if nc_start:
                 w(f"**Non-canonical start: {len(nc_start)}/{nc} ({100*len(nc_start)/nc:.1f}%)**")
@@ -730,12 +1136,12 @@ def _build_summary_md(rows):
 
             w("**Stop codons**")
             w("")
-            w("| Codon | n | % |")
-            w("|:------|--:|--:|")
+            w("| Codon | n | % | Status |")
+            w("|:------|--:|--:|:-------|")
             n_polya = sum(1 for r in complete if r["stop_flag"] == "polyA")
             for codon, c in sorted(stops.items(), key=lambda x: (-x[1], x[0])):
                 label = f"`{codon}` *(polyA)*" if codon in ("T", "TA") else f"`{codon}`"
-                w(f"| {label} | {c} | {100*c/nc:.1f}% |")
+                w(f"| {label} | {c} | {100*c/nc:.1f}% | {_md_status(stop_flags[codon])} |")
             w("")
             if n_polya:
                 w(f"*polyA-completed (T/TA → TAA): {n_polya}/{nc} ({100*n_polya/nc:.1f}%)*")
@@ -748,6 +1154,12 @@ def _build_summary_md(rows):
 
         if partial:
             w(f"*{len(partial)} partial CDS (truncated/fuzzy ends — not assessed)*")
+            w("")
+            w("| Record | Species | Start codon | Start flag | Stop codon | Stop flag |")
+            w("|:-------|:--------|:------------|:-----------|:-----------|:----------|")
+            for r in partial:
+                w(f"| `{r['record_id']}` | {r['species']} | `{r['start_codon']}` | "
+                  f"{r['start_flag']} | `{r['stop_codon']}` | {r['stop_flag']} |")
             w("")
 
         w("---")
@@ -778,7 +1190,85 @@ def _md_table(rows):
     return "\n".join(lines)
 
 
-def write_markdown_report(rows, out_prefix, genbank_path, cmd_str=None):
+def _build_noncoding_summary_md(noncoding_rows):
+    """Markdown summary for tRNA, rRNA, and control region features."""
+    lines = []
+    w = lines.append
+
+    n_records = len(set(r["record_id"] for r in noncoding_rows))
+    counts_per_record = defaultdict(lambda: defaultdict(int))
+    for r in noncoding_rows:
+        counts_per_record[r["record_id"]][r["feature_type"]] += 1
+
+    w("## Non-coding Feature Summary")
+    w("")
+    w(f"*{len(noncoding_rows)} non-coding features annotated across {n_records} record(s).*")
+    w("")
+
+    for ftype, label in [("tRNA", "tRNA"), ("rRNA", "rRNA"), ("control_region", "Control Region")]:
+        type_rows = [r for r in noncoding_rows if r["feature_type"] == ftype]
+        if not type_rows:
+            continue
+
+        w(f"### {label}")
+        w("")
+
+        counts_present = [counts_per_record[rid][ftype]
+                          for rid in counts_per_record
+                          if counts_per_record[rid][ftype] > 0]
+        if counts_present:
+            mean_c = sum(counts_present) / len(counts_present)
+            w(f"**Count per genome** (n={len(counts_present)} records): "
+              f"min={min(counts_present)} · max={max(counts_present)} · mean={mean_c:.1f}")
+            w("")
+
+        by_gene = defaultdict(list)
+        for r in type_rows:
+            by_gene[r["gene_name"]].append(r["length"])
+
+        w("| Gene | n | min (bp) | max (bp) | mean (bp) | median (bp) |")
+        w("|:-----|--:|--------:|--------:|----------:|------------:|")
+        for gene in sorted(by_gene):
+            lens = by_gene[gene]
+            n    = len(lens)
+            mean_l = sum(lens) / n
+            sl = sorted(lens)
+            median_l = (sl[n // 2] if n % 2 == 1
+                        else (sl[n // 2 - 1] + sl[n // 2]) / 2)
+            w(f"| {gene} | {n} | {min(lens)} | {max(lens)} | {mean_l:.1f} | {median_l:.1f} |")
+        w("")
+
+        if ftype == "tRNA":
+            # per-record copy counts per tRNA gene
+            trna_copies = defaultdict(lambda: defaultdict(int))
+            for r in type_rows:
+                trna_copies[r["record_id"]][r["gene_name"]] += 1
+
+            # only report genes that appear >1x in at least one record
+            dup_genes = sorted(
+                gene for gene in by_gene
+                if any(trna_copies[rid][gene] > 1 for rid in trna_copies)
+            )
+            if dup_genes:
+                w("**tRNA copy number per genome** (genes present >1x in at least one record)")
+                w("")
+                w("| Gene | 1 copy | 2 copies | 3+ copies |")
+                w("|:-----|-------:|---------:|----------:|")
+                for gene in dup_genes:
+                    c1 = sum(1 for rid in trna_copies if trna_copies[rid][gene] == 1)
+                    c2 = sum(1 for rid in trna_copies if trna_copies[rid][gene] == 2)
+                    c3 = sum(1 for rid in trna_copies if trna_copies[rid][gene] >= 3)
+                    w(f"| {gene} | {c1} | {c2} | {c3} |")
+                w("")
+
+        w("---")
+        w("")
+
+    return "\n".join(lines)
+
+
+def write_markdown_report(rows, out_prefix, genbank_path, cmd_str=None,
+                          noncoding_rows=None):
     """Write <prefix>.report.md (with PNG figures) and <prefix>.report.pdf.
 
     Requires matplotlib (figures) and pandoc + weasyprint (PDF conversion).
@@ -806,6 +1296,18 @@ def write_markdown_report(rows, out_prefix, genbank_path, cmd_str=None):
             path = f"{out_prefix}.{tag}.png"
             _fig_to_file(fig, path)
             figs[tag] = os.path.abspath(path)
+
+    if noncoding_rows:
+        for tag, build in [
+            ("fig_noncoding_counts",     lambda: _noncoding_count_fig(noncoding_rows)),
+            ("fig_trna_lengths",         lambda: _noncoding_trna_length_fig(noncoding_rows)),
+            ("fig_rrna_cr_lengths",      lambda: _noncoding_rrna_cr_length_fig(noncoding_rows)),
+        ]:
+            fig = build()
+            if fig is not None:
+                path = f"{out_prefix}.{tag}.png"
+                _fig_to_file(fig, path)
+                figs[tag] = os.path.abspath(path)
 
     n_records = len(set(r["record_id"] for r in rows))
     date_str  = datetime.date.today().isoformat()
@@ -846,10 +1348,24 @@ def write_markdown_report(rows, out_prefix, genbank_path, cmd_str=None):
         if tag in figs:
             md += [heading, "", f"![{alt}]({figs[tag]})", ""]
 
+    if noncoding_rows:
+        md += ["", "---", "", _build_noncoding_summary_md(noncoding_rows)]
+        nc_section_map = [
+            ("fig_noncoding_counts", "## 5. Non-coding Feature Counts",
+             "Non-coding feature counts"),
+            ("fig_trna_lengths",     "## 6. tRNA Length Distribution",
+             "tRNA lengths by gene"),
+            ("fig_rrna_cr_lengths",  "## 7. rRNA and Control Region Lengths",
+             "rRNA and control region lengths"),
+        ]
+        for tag, heading, alt in nc_section_map:
+            if tag in figs:
+                md += [heading, "", f"![{alt}]({figs[tag]})", ""]
+
     md_path  = f"{out_prefix}.report.md"
     pdf_path = f"{out_prefix}.report.pdf"
     with open(md_path, "w") as fh:
-        fh.write("\n".join(md))
+        fh.write(_REPORT_CSS + "\n".join(md))
 
     cmd = ["pandoc", md_path, "-o", pdf_path, "--pdf-engine=weasyprint"]
     try:
@@ -904,30 +1420,46 @@ Output files:
                                 weasyprint; skipped gracefully if absent)
   <prefix>.fig_*.png          individual figure PNGs referenced by the report
 
+With --noncoding-stats, also produces:
+  <prefix>.noncoding.tsv             one row per tRNA/rRNA/control region feature
+                                      (record_id, feature_type, gene_name, length)
+  <prefix>.fig_noncoding_counts.png  tRNA/rRNA/control region counts per genome
+  <prefix>.fig_trna_lengths.png      tRNA length distributions by gene
+  <prefix>.fig_rrna_cr_lengths.png   rRNA and control region length distributions
+
 Examples:
   python summarize_codons.py mitogenomes.gb
   python summarize_codons.py mitogenomes.gb -o results/percidae
+  python summarize_codons.py --noncoding-stats mitogenomes.gb -o results/percidae
 """)
     ap.add_argument("genbank", help="input GenBank (.gb) file of mitogenomes")
     ap.add_argument("-o", "--out-prefix", default=None,
                     help="output file prefix (default: input filename without extension)")
     ap.add_argument("--api-key", default=None, metavar="KEY",
                     help="NCBI API key (raises taxonomy fetch rate from 3 to 10 req/s)")
+    ap.add_argument("--noncoding-stats", action="store_true",
+                    help="generate summary stats and plots for tRNA, rRNA, and "
+                         "control region features (auto-enabled by mitoreview.sh "
+                         "when --complete or --refseq is used)")
     args = ap.parse_args()
 
     taxon_by_record = {}
     rows = []
+    noncoding_rows = [] if args.noncoding_stats else None
     with open(args.genbank, "r") as handle:
         for record in SeqIO.parse(handle, "genbank"):
             taxon_by_record[record.id] = _get_taxon_id(record)
             for feature in record.features:
-                if feature.type != "CDS":
-                    continue
-                try:
-                    rows.append(analyze_cds(feature, record))
-                except Exception as e:
-                    sys.stderr.write(
-                        f"WARNING: skipping a CDS in {record.id}: {e}\n")
+                if feature.type == "CDS":
+                    try:
+                        rows.append(analyze_cds(feature, record))
+                    except Exception as e:
+                        sys.stderr.write(
+                            f"WARNING: skipping a CDS in {record.id}: {e}\n")
+                elif noncoding_rows is not None:
+                    nc = _analyze_noncoding_feature(feature, record.id)
+                    if nc:
+                        noncoding_rows.append(nc)
 
     if not rows:
         print("No CDS features found in the input. Nothing to summarize.")
@@ -950,16 +1482,28 @@ Examples:
     write_tsv(rows, tsv_path)
     print_summary(rows, summary_path)
 
+    noncoding_tsv_path = None
+    if noncoding_rows:
+        nc_text = _build_noncoding_summary_text(noncoding_rows)
+        sys.stdout.write(nc_text + "\n")
+        with open(summary_path, "a") as fh:
+            fh.write(nc_text + "\n")
+        noncoding_tsv_path = f"{out_prefix}.noncoding.tsv"
+        write_noncoding_tsv(noncoding_rows, noncoding_tsv_path)
+
     print("=" * 80)
     print(f"Per-CDS table:  {tsv_path}")
     print(f"Summary:        {summary_path}")
+    if noncoding_tsv_path:
+        print(f"Non-coding TSV: {noncoding_tsv_path}")
 
     argv = sys.argv[:]
     for i, tok in enumerate(argv):
         if tok == "--api-key" and i + 1 < len(argv):
             argv[i + 1] = "***"
     cmd_str = " ".join(argv)
-    md_path, pdf_path = write_markdown_report(rows, out_prefix, args.genbank, cmd_str)
+    md_path, pdf_path = write_markdown_report(rows, out_prefix, args.genbank, cmd_str,
+                                               noncoding_rows=noncoding_rows)
     if md_path:
         print(f"Markdown report: {md_path}")
     if pdf_path:

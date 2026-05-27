@@ -66,18 +66,25 @@ Options:
   --api-key <key>    NCBI API key. Raises the Entrez request rate limit from
                      3 to 10 requests/second. Register at
                      https://www.ncbi.nlm.nih.gov/account/
-  --complete         Restrict download to records titled "complete genome"
-  --refseq           Restrict download to RefSeq records (NC_* accessions)
+  --complete         Restrict download to records titled "complete genome";
+                     also enables tRNA/rRNA/control region stats and plots
+  --refseq           Restrict download to RefSeq records (NC_* accessions);
+                     also enables tRNA/rRNA/control region stats and plots
   -h, --help         Show this help message and exit
 
 Output:
-  <outdir>/<prefix>.raw.gb      Unfiltered downloaded records
-  <outdir>/<prefix>.gb          Multi-gene mitogenomes after filtering
-  <outdir>/<prefix>.codons.tsv  Per-CDS table: gene, codon, canonical status, flags
-  <outdir>/<prefix>.summary.txt Per-gene codon summary (same as stdout)
-  <outdir>/<prefix>.report.md   Markdown report with figures
-  <outdir>/<prefix>.report.pdf  PDF rendered from the Markdown report
-  stdout                        Per-gene codon distribution summary with [FLAG] lines
+  <outdir>/<prefix>.raw.gb                 Unfiltered downloaded records
+  <outdir>/<prefix>.gb                     Multi-gene mitogenomes after filtering
+  <outdir>/<prefix>.codons.tsv             Per-CDS table: gene, codon, canonical status, flags
+  <outdir>/<prefix>.summary.txt            Per-gene codon summary (same as stdout)
+  <outdir>/<prefix>.report.md              Markdown report with figures
+  <outdir>/<prefix>.report.pdf             PDF rendered from the Markdown report
+  stdout                                   Per-gene codon distribution summary with [FLAG] lines
+
+  With --complete or --refseq, also produces:
+  <outdir>/<prefix>.fig_noncoding_counts.png  tRNA/rRNA/control region counts per genome
+  <outdir>/<prefix>.fig_trna_lengths.png      tRNA length distributions by gene
+  <outdir>/<prefix>.fig_rrna_cr_lengths.png   rRNA and control region length distributions
 
 Examples:
   bash mitoreview.sh '"Percidae"[Organism]' percidae
@@ -95,11 +102,12 @@ EOF
 OUTDIR="."
 API_KEY=""
 DOWNLOAD_OPTS=()
+NONCODING_STATS=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -h|--help)  print_help; exit 0 ;;
-    --complete) DOWNLOAD_OPTS+=("--complete"); shift ;;
-    --refseq)   DOWNLOAD_OPTS+=("--refseq"); shift ;;
+    --complete) DOWNLOAD_OPTS+=("--complete"); NONCODING_STATS=1; shift ;;
+    --refseq)   DOWNLOAD_OPTS+=("--refseq");   NONCODING_STATS=1; shift ;;
     --outdir)   [[ $# -ge 2 ]] || { echo "ERROR: --outdir requires a value" >&2; exit 1; }
                 OUTDIR="$2"; shift 2 ;;
     --api-key)  [[ $# -ge 2 ]] || { echo "ERROR: --api-key requires a value" >&2; exit 1; }
@@ -128,5 +136,6 @@ echo ""
 echo "Summarizing codon usage..."
 echo ""
 SUMMARIZE_OPTS=()
-[[ -n "${API_KEY}" ]] && SUMMARIZE_OPTS+=("--api-key" "${API_KEY}")
+[[ -n "${API_KEY}" ]]   && SUMMARIZE_OPTS+=("--api-key" "${API_KEY}")
+[[ ${NONCODING_STATS} -eq 1 ]] && SUMMARIZE_OPTS+=("--noncoding-stats")
 python "${SCRIPT_DIR}/summarize_codons.py" "${FULL_PREFIX}.gb" -o "${FULL_PREFIX}" "${SUMMARIZE_OPTS[@]}"
